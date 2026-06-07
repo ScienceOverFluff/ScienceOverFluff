@@ -1239,7 +1239,7 @@ function fmtSaving(saving){
 }
 function refreshFxRates() {
   // Use your Cloudflare Worker as a proxy
-  fetch("https://get.scienceoverflowfluff.com/currency")
+  fetch("https://get.scienceoverfluff.com/currency")
     .then(function(r){ return r.json(); })
     .then(function(d){
       if (d && d.rates) {
