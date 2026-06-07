@@ -37,8 +37,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz">
 <meta property="og:image" content="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Science-Over-Fluff_Logo.png"><title>Laser LED IPL Hair Removal Device Recommendation Tool | Science Over Fluff</title>
-<link rel="icon" type="image/png" sizes="48x48" href="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/SOF_Favicon.png">
-<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Science-Over-Fluff_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -668,7 +667,7 @@
       </button>
       <div class="nav-dropdown">
         <div class="nav-dropdown-section">Hair Removal</div>
-        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices">Device Comparison Tool</a>
+        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/">Device Comparison Tool</a>
         <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz">Device Recommendation Quiz</a>
         <div class="nav-dropdown-section">Science Over Fluff</div>
         <a href="https://www.scienceoverfluff.com/archive" target="_blank" rel="noopener">Data-Driven Product Reviews</a>
@@ -827,8 +826,8 @@ const LINKS = {
     primary: 'https://geni.us/Ulike_Air_4',
     secondary: 'https://www.awin1.com/cread.php?awinmid=33267&awinaffid=2721030&clickref=QUIZ-Ulike-Air4&ued=https%3A%2F%2Fwww.ulike.com%2Fproducts%2Fsapphire-air-4-ipl-laser-hair-removal',
   },
-  Lumea: {
-    primary: 'https://get.scienceoverfluff.com/philips-lumea-9000',
+  BraunSilkExpertPro5: {
+    primary: 'https://get.scienceoverfluff.com/braun-silk-expert-pro-5',
   },
 };
 const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDUH1jTk-S1Y5W36eBqA-BCXkk1m6r0HAhRKTqarEp39Iv8zlRBoqA_Ee9clQtr2_x/exec';
@@ -900,27 +899,27 @@ function calculateResult() {
     renderResult('peachfuzz'); return;
   }
 
-  const scores = { SLD: 0, EpiPro: 0, Air10: 0, Air4: 0, Lumea: 0 };
+  const scores = { SLD: 0, EpiPro: 0, Air10: 0, Air4: 0, BraunSilkExpertPro5: 0 };
 
-  if (answers.skin === 'I-III') { scores.Lumea+=3; scores.Air4+=3; scores.Air10+=3; scores.SLD+=1; scores.EpiPro+=1; }
+  if (answers.skin === 'I-III') { scores.BraunSilkExpertPro5+=3; scores.Air4+=3; scores.Air10+=3; scores.SLD+=1; scores.EpiPro+=1; }
   if (answers.skin === 'IV')    { scores.SLD+=2; }
   if (answers.skin === 'V')     { scores.SLD+=2; scores.EpiPro+=2; }
   if (answers.skin === 'VI')    { scores.EpiPro+=10; }
 
-  if (answers.hair === 'dark')   { scores.Lumea+=1; scores.Air4+=1; scores.Air10+=1; scores.SLD+=1; scores.EpiPro+=1; }
-  if (answers.hair === 'medium') { scores.EpiPro+=10; scores.Lumea+=10; }
+  if (answers.hair === 'dark')   { scores.BraunSilkExpertPro5+=1; scores.Air4+=1; scores.Air10+=1; scores.SLD+=1; scores.EpiPro+=1; }
+  if (answers.hair === 'medium') { scores.EpiPro+=10; scores.BraunSilkExpertPro5+=10; }
 
-  if (answers.area === 'arms')   { scores.Lumea+=1; scores.Air4+=1; scores.Air10+=1; scores.SLD+=1; scores.EpiPro+=1; }
+  if (answers.area === 'arms')   { scores.BraunSilkExpertPro5+=1; scores.Air4+=1; scores.Air10+=1; scores.SLD+=1; scores.EpiPro+=1; }
   if (answers.area === 'bikini') { scores.EpiPro+=3; scores.SLD+=3; }
   if (answers.area === 'beard')  { scores.EpiPro+=3; scores.SLD+=3; }
 
-  if (answers.density.some(t => ['coarse','medium'].includes(t))) { scores.Lumea+=1; scores.Air4+=1; scores.Air10+=1; scores.SLD+=1; scores.EpiPro+=1; }
-  if (answers.density.includes('fine')) { scores.Lumea+=2; scores.EpiPro+=2; scores.SLD+=2; scores.Air4+=1; }
+  if (answers.density.some(t => ['coarse','medium'].includes(t))) { scores.BraunSilkExpertPro5+=1; scores.Air4+=1; scores.Air10+=1; scores.SLD+=1; scores.EpiPro+=1; }
+  if (answers.density.includes('fine')) { scores.BraunSilkExpertPro5+=2; scores.EpiPro+=2; scores.SLD+=2; scores.Air4+=1; }
 
   if (answers.priority === 'budget')    { scores.SLD+=1; scores.Air4+=1; }
   if (answers.priority === 'permanent') { scores.EpiPro+=1; scores.SLD+=1; scores.Air10+=1; }
   if (answers.priority === 'pain')      { scores.EpiPro+=1; scores.SLD+=1; scores.Air10+=1; }
-  if (answers.priority === 'frequency') { scores.Lumea+=1; scores.SLD+=1; scores.EpiPro+=1; }
+  if (answers.priority === 'frequency') { scores.BraunSilkExpertPro5+=1; scores.SLD+=1; scores.EpiPro+=1; }
 
   const winner = Object.entries(scores).reduce((a, b) => b[1] > a[1] ? b : a)[0];
   renderResult(winner);
@@ -968,13 +967,13 @@ function getPersonalizedIntro(device) {
       default: { reason: '',
                  text: `For ${skinLabel} treating ${areaLabel} on a budget, the Ulike Air 4 balances performance and price better than anything else in its category.` },
     },
-    Lumea: {
+    BraunSilkExpertPro5: {
       medium_hair: { reason: 'Hair color: light brown / dark blonde',
-                     text: `Your hair color is the deciding factor. Light-based hair removal works by targeting melanin (pigment) in the hair; the follicle absorbs the light, converts it to heat, and that heat disables the hair producing cells. Light brown, dark blonde, and dark auburn hair sits in a tricky range where there is enough pigment to absorb some light, but less of the device energy gets converted to follicle-destroying heat. <br><br>The Lumea overcomes this limitation by utilizing wavelengths that are absorbed more readily by melanin — though you should still expect progress to be slower than it would for someone with dark hair.` },
+                     text: `Your hair color is the deciding factor. Light-based hair removal works by targeting melanin (pigment) in the hair; the follicle absorbs the light, converts it to heat, and that heat disables the hair producing cells. Light brown, dark blonde, and dark auburn hair sits in a tricky range where there is enough pigment to absorb some light, but less of the device energy gets converted to follicle-destroying heat. <br><br>The Braun Silk Expert Pro 5 overcomes this limitation by utilizing wavelengths that are absorbed more readily by melanin — though you should still expect progress to be slower than it would for someone with dark hair.` },
       frequency:   { reason: 'Priority: low session frequency',
-                     text: `You mentioned that a device requiring frequent use wouldn't fit your schedule, which is why the Lumea is your top recommendation. While many home devices require weekly treatments to be effective, the Lumea is specifically engineered for a low-maintenance routine. It only needs to be used once every two weeks, allowing you to achieve consistent hair reduction without the time commitment required by standard IPL devices.` },
+                     text: `You mentioned that a device requiring frequent use wouldn't fit your schedule, which is why the Braun Silk Expert Pro 5 is your top recommendation. While many home devices require treatments several times a week to be effective, the Braun Silk Expert Pro 5 is specifically engineered for a low-maintenance routine. It only needs to be used once a week, allowing you to achieve consistent hair reduction without the time commitment required by other IPL devices.` },
       default:     { reason: '',
-                     text: `For ${skinLabel} treating ${areaLabel}, the Philips Lumea 9000 is a solid match — particularly if low session frequency is important to you.` },
+                     text: `For ${skinLabel} treating ${areaLabel}, the Braun Silk Expert Pro 5 is a solid match — particularly if low session frequency is important to you.` },
     },
   };
 
@@ -997,7 +996,7 @@ function getPersonalizedIntro(device) {
     selected = priority === 'pain' ? d.pain : d.default;
   } else if (device === 'Air4') {
     selected = priority === 'budget' ? d.budget : d.default;
-  } else if (device === 'Lumea') {
+  } else if (device === 'BraunSilkExpertPro5') {
     if (hair === 'medium')             selected = d.medium_hair;
     else if (priority === 'frequency') selected = d.frequency;
     else                               selected = d.default;
@@ -1046,12 +1045,12 @@ function getPersonalizedBullets(device) {
       { key:'general4', show: true,                                  text: 'Treatment Frequency: 3× per week' },
       { key:'general5', show: true,                                  text: 'Optimized to be highly effective on pale skin and dark hair' },
     ],
-    Lumea: [
+    BraunSilkExpertPro5: [
       { key:'medium',   show: answers.hair==='medium',               text: 'Wide effective hair color range including dark blonde, light brown, and dark auburn' },
-      { key:'frequency',show: priority==='frequency',                text: 'Session frequency is only once every two weeks — lowest required frequency of any at-home IPL device' },
-      { key:'general1', show: true,                                  text: 'Up to 5 J/cm² per flash' },
+      { key:'frequency',show: priority==='frequency',                text: 'Session frequency is only once a week' },
+      { key:'general1', show: true,                                  text: 'Up to 6 J/cm² per flash' },
       { key:'general2', show: true,                                  text: 'Specialized treatment heads available for different treatment areas' },
-      { key:'general3', show: true,                                  text: 'High lifespan of up to 450,000 flashes' },
+      { key:'general3', show: true,                                  text: 'Lifespan of up to 400,000 flashes' },
     ],
   };
   return (allBullets[device]||[]).filter(b=>b.show).slice(0,5).map(b=>`<li><span class="bullet-check">✓</span> ${b.text}</li>`).join('');
@@ -1219,10 +1218,10 @@ function renderResult(device) {
               ctaLabel:'→ Get it on Amazon',
               ctaAlt:{url:LINKS.Air4.secondary, label:'→ Get it on Ulike.com'},
               sectionLabel:'See how it compares against other Ulike devices:' },
-    Lumea:  { headline:'The Philips Lumea 9000',
-              productImageUrl: 'https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Philips-Lumea-9000.png',
+    BraunSilkExpertPro5:  { headline:'Braun Silk Expert Pro 5',
+              productImageUrl: 'https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Braun-Silk-Expert-Pro-5.png',
               discount:null,
-              ctaUrl:LINKS.Lumea.primary,
+              ctaUrl:LINKS.BraunSilkExpertPro5.primary,
               ctaLabel:'→ Get it on Amazon',
               ctaAlt:null,
               sectionLabel:'' },
