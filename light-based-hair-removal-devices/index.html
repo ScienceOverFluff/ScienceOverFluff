@@ -1225,6 +1225,24 @@ var PREVIEW_COUNTRY = null;
     }
   } catch(e){}
 })();
+
+(async function detectUserCountry() {
+  try {
+    const response = await fetch('https://get.scienceoverfluff.com/detect-country');
+    const data = await response.json();
+    
+    if (data.country === 'CA' && !PREVIEW_COUNTRY) {
+      PREVIEW_COUNTRY = 'CA';
+      NUM_LOCALE = 'en-CA';
+      // Refresh the UI with new locale
+      updatePriceFilterLabels();
+      buildTable();
+    }
+  } catch(e) {
+    console.log('Country detection failed, using defaults', e);
+  }
+})();
+
 /* Reformat a number / numeric string to the active locale's separators */
 function fmtNum(v){
   if (v === null || v === undefined || v === "") return v;
