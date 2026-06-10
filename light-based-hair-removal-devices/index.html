@@ -150,6 +150,7 @@ button{font-family:inherit;cursor:pointer;}
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0,0,0,.2);
   z-index: 100;
+  transition: top .25s ease;
 }
 
 .quiz-bar-btn {
@@ -168,45 +169,6 @@ button{font-family:inherit;cursor:pointer;}
 }
 .quiz-bar-btn:hover { background: var(--white); color: var(--navy); }
 
-/* desktop: body sits above the strip, expanding upward (original layout) */
-.quiz-bar .quiz-body{order:1;}
-.quiz-bar .quiz-strip{order:2;}
-
-.quiz-body {
-  background: #fff;
-  padding: 0 20px;
-  position: relative;
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s cubic-bezier(0.4,0,0.2,1), padding 0.35s;
-}
-.quiz-body.open {
-  max-height: 160px;
-  padding: 16px 20px;
-  border-bottom: 1px solid #eee;
-}
-.quiz-close-btn {
-  position: absolute;
-  top: 10px; right: 10px;
-  width: 22px; height: 22px;
-  border-radius: 50%;
-  background: #f0f0f0;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  color: #999;
-  display: flex; align-items: center; justify-content: center;
-  line-height: 1;
-  font-family: inherit;
-}
-.quiz-close-btn:hover { background: #e0e0e0; color: #555; }
-.quiz-desc {
-  font-size: 13px;
-  color: var(--text-mid);
-  margin: 0;
-  line-height: 1.5;
-  padding-right: 28px;
-}
 .quiz-strip {
   background: var(--gold);
   display: flex;
@@ -230,15 +192,6 @@ button{font-family:inherit;cursor:pointer;}
   color: var(--group-fg);
   line-height: 1.3;
 }
-.quiz-chevron {
-  color: rgba(255,255,255,0.4);
-  font-size: 12px;
-  line-height: 1;
-  transition: transform 0.3s;
-  flex-shrink: 0;
-  margin-left: 2px;
-}
-.quiz-chevron.up { transform: rotate(180deg); }
 
 /* PAGE */
 .page{max-width:1300px;margin:0 auto;padding:1.5rem 1.25rem 2rem;}
@@ -504,6 +457,13 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
 .onboard-pick-badge.gold{background:var(--gold);color:var(--navy);}
 .onboard-pick-name{font-size:14px;font-weight:700;color:var(--navy);}
 .onboard-pick-blurb{font-size:var(--fs-xs);color:var(--text-mid);line-height:1.45;}
+a.onboard-pick{text-decoration:none;color:inherit;cursor:pointer;transition:border-color .15s, box-shadow .15s, transform .12s;}
+a.onboard-pick:hover{border-color:var(--navy);transform:translateY(-1px);box-shadow:0 3px 10px rgba(12,0,109,.12);}
+a.onboard-pick.featured:hover{border-color:var(--gold-dk);box-shadow:0 3px 10px rgba(196,126,16,.25);}
+.onboard-quiz-btn{display:block;width:100%;text-align:center;background:var(--gold);color:var(--navy);font-weight:700;font-size:var(--fs);padding:10px 16px;border-radius:var(--radius-pill);text-decoration:none;transition:opacity .15s;}
+.onboard-quiz-btn:hover{opacity:.85;}
+.onboard-cta-stack{display:flex;flex-direction:column;gap:8px;margin-bottom:.6rem;}
+.onboard-cta-stack .onboard-btn-primary{margin-bottom:0;}
 .onboard-disclosure{display:block;font-size:9px;color:#999;font-style:italic;margin:.45rem 0 .2rem;text-align:left;}
 .onboard-consent{display:block;font-size:10px;color:#888;line-height:1.5;margin:0 0 .9rem;text-align:left;}
 .onboard-consent a{color:var(--navy);text-decoration:underline;}
@@ -518,13 +478,16 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
   .nav-menu{margin-left:auto;}
   .nav-reviews-mobile{display:block;}
   .page{padding:1rem .75rem 2rem;}
-  .quiz-bar{top:70px; bottom:auto; right:-1px; border-radius: 14px 0 0 14px;}
-  .quiz-bar .quiz-strip{order:1;}
-  .quiz-bar .quiz-body{order:2;}
-  .quiz-body.open{border-top:1px solid #eee;border-bottom:none;}
-  .quiz-chevron{transform:rotate(180deg);}
-  .quiz-chevron.up{transform:rotate(0deg);}
+  .quiz-bar{bottom:0; top:auto; left:0; right:0; width:100%; border-radius:14px 14px 0 0; transition:transform .3s ease;}
+  .quiz-bar.quiz-hidden{transform:translateY(110%);}
   #floatBar{top:auto;bottom:0;}
+  /* onboarding as a bottom sheet so the page shows through */
+  .onboard-backdrop{align-items:flex-end;padding:0;}
+  .onboard-card{max-width:100%;width:100%;border-radius:18px 18px 0 0;max-height:74vh;padding:1rem 1.1rem .9rem;}
+  .onboard-logo{display:none;}
+  .onboard-title{font-size:18px;}
+  .onboard-cta-stack{position:sticky;bottom:0;background:#fff;margin:0 -1.1rem;padding:8px 1.1rem;box-shadow:0 -8px 14px -10px rgba(0,0,0,.25);}
+  .onboard-btn-skip{display:none;}
   :root{--spec-w:100px;--col-w:200px;}
   .caution-box{position:static;margin-top:.75rem;}
 }
@@ -711,37 +674,28 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
     <div class="onboard-row" id="obHairRow"></div>
     <span class="onboard-label">Science Over Fluff picks</span>
     <div class="onboard-picks" id="obPicks"></div>
-    <span class="onboard-disclosure">Science Over Fluff may earn a commission on purchases — full disclosure in the page intro.</span>
+    <span class="onboard-disclosure">If you use the links to make a purchase, Science Over Fluff may earn a commission at no additional cost to you.</span>
     <span class="onboard-consent">This tool uses cookies for analytics and affiliate referrals — by continuing you accept them (<a href="/privacy" target="_blank" rel="noopener">privacy policy</a>), or <a href="#" id="obDeclineCookies">decline non-essential cookies</a>.</span>
-    <button class="onboard-btn-primary" onclick="dismissOnboard(false)">Compare my matches →</button>
-    <button class="onboard-btn-skip" onclick="dismissOnboard(true)">Skip — show all 13 devices</button>
+    <div class="onboard-cta-stack">
+      <button class="onboard-btn-primary" onclick="dismissOnboard(false)">Compare my matches →</button>
+      <a class="onboard-quiz-btn" href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz"
+         target="_blank" rel="noopener"
+         onclick="gtag('event', 'quiz_cta_click', { source: 'onboard_overlay' });">Want a personalized pick? Take the quiz →</a>
+    </div>
+    <button class="onboard-btn-skip" id="onboardSkipBtn" onclick="dismissOnboard(true)">Skip — show all devices</button>
   </div>
 </div>
 
 <!-- STICKY QUIZ BAR -->
-<div class="quiz-bar" id="quizBar">
-
-  <div onclick="toggleQuiz()" class="quiz-strip">
+<div class="quiz-bar" id="quizBar" style="display:none;">
+  <div class="quiz-strip">
     <div class="strip-text">
       Not sure which device to get?
     </div>
     <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz"
      target="_blank" rel="noopener" class="quiz-bar-btn"
-     onclick="event.stopPropagation(); gtag('event', 'quiz_cta_click', { source: 'sticky_bar' });">Take the quiz →</a>
-    <span id="quizChevron" class="quiz-chevron">&#8963;</span>
+     onclick="gtag('event', 'quiz_cta_click', { source: 'sticky_bar' });">Take the quiz →</a>
   </div>
-
-  <div class="quiz-body" id="quizCardBody">
-    <div style="display:flex;align-items:flex-start;gap:12px;">
-      <img src="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Science-Over-Fluff_Logo.png"
-           alt="Science Over Fluff" class="strip-logo" style="border:2px solid #eee;">
-      <div>
-        <p class="quiz-desc">Answer 5 questions about your skin tone, hair color, and priorities for a personalized recommendation. Takes 60 seconds.</p>
-      </div>
-    </div>
-    <button onclick="collapseQuiz()" aria-label="Close" class="quiz-close-btn">×</button>
-  </div>
-
 </div>
 
 <script>
@@ -1214,28 +1168,16 @@ var tableScrolledIntoView = false;
 /* ── Footer year ── */
 document.getElementById("footerYear").textContent = new Date().getFullYear();
 
-/* ── Slide-up quiz bar ── */
-var quizExpanded = false;
-
-function expandQuiz() {
-  quizExpanded = true;
-  gtag('event', 'quiz_bar_expand');
-  document.getElementById("quizCardBody").classList.add("open");
-  document.getElementById("quizChevron").classList.add("up");
+/* ── Quiz strip (shown after the onboarding overlay is dismissed) ── */
+var quizBarShown = false;
+function showQuizBar(){
+  if (quizBarShown) return;
+  quizBarShown = true;
+  var bar = document.getElementById('quizBar');
+  if (bar) bar.style.display = '';
   updateQuizBarRadius();
+  updateQuizBarVisibility();
 }
-
-function collapseQuiz() {
-  quizExpanded = false;
-  document.getElementById("quizCardBody").classList.remove("open");
-  document.getElementById("quizChevron").classList.remove("up");
-  updateQuizBarRadius();
-}
-
-function toggleQuiz() { quizExpanded ? collapseQuiz() : expandQuiz(); }
-
-collapseQuiz();
-setTimeout(expandQuiz, 10000);
 
 /* ── Dropdown Menu ── */
 function toggleNav() {
@@ -1631,6 +1573,13 @@ function updateFade() {
 
 function updateQuizBarRadius() {
   var bar = document.getElementById("quizBar");
+  if (window.innerWidth <= 600) {
+    bar.style.left = "0";
+    bar.style.right = "0";
+    bar.style.borderRadius = "14px 14px 0 0";
+    return;
+  }
+  bar.style.left = "";
   var floatRight = Math.max(0, (window.innerWidth - 1320) / 2);
   if (floatRight <= 1) {
     bar.style.right = "-1px";
@@ -1890,9 +1839,9 @@ function updateFloatBar() {
     return '<div style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:8px;gap:4px;flex-shrink:0;width:' + w + 'px;">'
       + bfl.map(function(l){ return '<span class="float-best-for-badge"> '+escHtml(l)+'</span>'; }).join('')
       +'<a href="'+escHtml(d.links.buy)+'" target="_blank" rel="noopener sponsored"'
-      +' style="display:flex;flex-direction:column;align-items:center;line-height:1.1;background:#fff;padding:3px 12px;border-radius:100px;text-decoration:none;">'
-      +'<span style="font-size:9px;font-weight:600;color:rgba(12,0,109,.55);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;">'+escHtml(d.brand)+'</span>'
-      +'<span style="font-size:14px;font-weight:700;color:var(--navy);white-space:nowrap;">'+escHtml(d.product)+'</span></a>'
+      +' style="display:flex;flex-direction:column;align-items:center;line-height:1.1;background:var(--navy);border:1.5px solid rgba(255,255,255,.4);padding:3px 12px;border-radius:100px;text-decoration:none;">'
+      +'<span style="font-size:9px;font-weight:600;color:rgba(255,255,255,.65);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;">'+escHtml(d.brand)+'</span>'
+      +'<span style="font-size:14px;font-weight:700;color:#fff;white-space:nowrap;">'+escHtml(d.product)+'</span></a>'
       +(hasSaving
   ? '<div class="coupon-copy" role="button" tabindex="0" title="Click to copy code"'
     +' onclick="copyCoupon(\''+escHtml(coupon.code)+'\', \''+d.id+'\', this)"'
@@ -1990,18 +1939,33 @@ function renderOnboardPicks(){
     var body = compat
       ? '<span class="onboard-pick-blurb">'+p.blurb+'</span>'
       : '<span class="onboard-pick-blurb">Not rated for your selected skin tone or hair color. The comparison will highlight better matches for you.</span>';
-    return '<div class="'+cls+'">'
-      +'<span class="onboard-pick-badge'+(p.cls === 'featured' ? ' gold' : '')+'">'+p.badge+'</span>'
-      +'<span class="onboard-pick-name">'+escHtml(d.brand)+' '+escHtml(d.product)+'</span>'
-      +body
-      +'</div>';
+    var inner = '<span class="onboard-pick-badge'+(p.cls === 'featured' ? ' gold' : '')+'">'+p.badge+'</span>'
+      +'<span class="onboard-pick-name">'+escHtml(d.brand)+' '+escHtml(d.product)+(compat ? ' <span style="color:var(--gold-dk);font-size:12px;">\u2197</span>' : '')+'</span>'
+      +body;
+    if (compat) {
+      return '<a class="'+cls+'" href="https://get.scienceoverfluff.com/'+encodeURIComponent(d.id)+'?ref=onboard-'+encodeURIComponent(d.id)+'" target="_blank" rel="noopener sponsored"'
+        +' onclick="gtag(\'event\',\'buy_click\',{device_id:\''+d.id+'\',placement:\'onboard_overlay\'})">'+inner+'</a>';
+    }
+    return '<div class="'+cls+'">'+inner+'</div>';
   }).join('');
+  updateOnboardCta();
+}
+
+/* single adaptive CTA on mobile: skip wording until a filter is chosen */
+function updateOnboardCta(){
+  var btn = document.querySelector('.onboard-btn-primary');
+  if (!btn) return;
+  if (window.innerWidth > 600) { btn.innerHTML = 'Compare my matches \u2192'; return; }
+  btn.innerHTML = (obSkin === null && obHair === null)
+    ? 'Skip \u2014 compare all ' + DEVICES.length + ' devices \u2192'
+    : 'Compare my matches \u2192';
 }
 
 function dismissOnboard(skip){
   var el = document.getElementById('onboardBackdrop');
   if (el) { el.classList.add('hidden'); setTimeout(function(){ el.style.display = 'none'; }, 320); }
   try { sessionStorage.setItem('sof-onboard-seen', '1'); } catch(e){}
+  showQuizBar();
   /* the overlay notice doubles as the cookie banner: continuing = consent, unless they declined or chose previously */
   try {
     if (!window.sofCookiesDeclined && !localStorage.getItem('sof-consent') && typeof sofConsent === 'function') sofConsent(true);
@@ -2028,15 +1992,17 @@ function dismissOnboard(skip){
 
 function initOnboard(){
   var el = document.getElementById('onboardBackdrop');
-  if (!el) return;
+  if (!el) { showQuizBar(); return; }
   try {
     var params = new URLSearchParams(location.search);
     if (params.get('type') || params.get('skip_intro') || sessionStorage.getItem('sof-onboard-seen')) {
-      el.style.display = 'none'; return;
+      el.style.display = 'none'; showQuizBar(); return;
     }
   } catch(e){}
   renderOnboardSelectors();
   renderOnboardPicks();
+  var skipBtn = document.getElementById('onboardSkipBtn');
+  if (skipBtn) skipBtn.textContent = 'Skip \u2014 show all ' + DEVICES.length + ' devices';
   var dec = document.getElementById('obDeclineCookies');
   if (dec) dec.addEventListener('click', function(e){
     e.preventDefault();
@@ -2056,8 +2022,19 @@ var tableObserver = new IntersectionObserver(function(entries){
   });
 }, { threshold: 0.3 });
 tableObserver.observe(document.getElementById("tableCard"));
-window.addEventListener("scroll", function(){ updateFade(); updateFloatBar(); });
-window.addEventListener("resize", function(){ updateFade(); updateFloatBar(); });
+/* mobile: hide the bottom quiz strip while the floating buy bar is on screen */
+function updateQuizBarVisibility(){
+  var bar = document.getElementById('quizBar');
+  if (!bar) return;
+  bar.style.top = '';
+  if (window.innerWidth > 600) { bar.classList.remove('quiz-hidden'); return; }
+  var fb = document.getElementById('floatBar');
+  var buyVisible = fb && fb.style.display === 'block';
+  bar.classList.toggle('quiz-hidden', !!buyVisible);
+}
+updateQuizBarVisibility();
+window.addEventListener("scroll", function(){ updateFade(); updateFloatBar(); updateQuizBarVisibility(); });
+window.addEventListener("resize", function(){ updateFade(); updateFloatBar(); updateQuizBarVisibility(); updateOnboardCta(); });
 </script>
 
 <!-- ── Cookie consent (brand-matched, Google Consent Mode v2) ── -->
