@@ -50,12 +50,36 @@
     },
     {
       "@type": "CollectionPage",
-      "@id": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices/#webpage",
+      "@id": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices#webpage",
       "url": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices",
       "name": "The Best At-Home IPL, LED, and Laser Hair Removal Devices, Compared",
       "description": "Compare every major at-home hair removal device side by side: fluence, wavelength, skin tone compatibility, price, and Science Over Fluff's honest verdict.",
       "isPartOf": { "@id": "https://compare.scienceoverfluff.com/#website" },
-      "publisher": { "@id": "https://www.scienceoverfluff.com/#org" }
+      "publisher": { "@id": "https://www.scienceoverfluff.com/#org" },
+      "dateModified": "2026-06-10",
+      "mainEntity": { "@id": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices#devicelist" }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices#devicelist",
+      "name": "At-home IPL, LED, and laser hair removal devices compared",
+      "numberOfItems": 13,
+      "itemListOrder": "https://schema.org/ItemListUnordered",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "item": { "@type": "Product", "name": "Braun Silk Expert Pro 5", "brand": { "@type": "Brand", "name": "Braun" } } },
+        { "@type": "ListItem", "position": 2, "item": { "@type": "Product", "name": "DermRays V6S", "brand": { "@type": "Brand", "name": "DermRays" } } },
+        { "@type": "ListItem", "position": 3, "item": { "@type": "Product", "name": "DermRays V8S", "brand": { "@type": "Brand", "name": "DermRays" } } },
+        { "@type": "ListItem", "position": 4, "item": { "@type": "Product", "name": "Nood Flasher 2.0", "brand": { "@type": "Brand", "name": "Nood" } } },
+        { "@type": "ListItem", "position": 5, "item": { "@type": "Product", "name": "Philips Lumea 8000", "brand": { "@type": "Brand", "name": "Philips" } } },
+        { "@type": "ListItem", "position": 6, "item": { "@type": "Product", "name": "Philips Lumea 9000", "brand": { "@type": "Brand", "name": "Philips" } } },
+        { "@type": "ListItem", "position": 7, "item": { "@type": "Product", "name": "Tria 4X", "brand": { "@type": "Brand", "name": "Tria" }, "url": "https://www.scienceoverfluff.com/p/tria-4x-vs-viqure-s-ld" } },
+        { "@type": "ListItem", "position": 8, "item": { "@type": "Product", "name": "Ulike Air 3", "brand": { "@type": "Brand", "name": "Ulike" } } },
+        { "@type": "ListItem", "position": 9, "item": { "@type": "Product", "name": "Ulike Air 4", "brand": { "@type": "Brand", "name": "Ulike" } } },
+        { "@type": "ListItem", "position": 10, "item": { "@type": "Product", "name": "Ulike Air 10", "brand": { "@type": "Brand", "name": "Ulike" }, "url": "https://www.scienceoverfluff.com/p/ulike-technical-review-and-results" } },
+        { "@type": "ListItem", "position": 11, "item": { "@type": "Product", "name": "Ulike X", "brand": { "@type": "Brand", "name": "Ulike" } } },
+        { "@type": "ListItem", "position": 12, "item": { "@type": "Product", "name": "ViQure EpiPro", "brand": { "@type": "Brand", "name": "ViQure" }, "url": "https://www.scienceoverfluff.com/p/viqure-s-ld-vs-epipro-which-one-should-you-buy" } },
+        { "@type": "ListItem", "position": 13, "item": { "@type": "Product", "name": "ViQure S-LD", "brand": { "@type": "Brand", "name": "ViQure" }, "url": "https://www.scienceoverfluff.com/p/viqure-s-ld-at-home-hair-removal-timelines-hacks-results" } }
+      ]
     },
     {
       "@type": "BreadcrumbList",
@@ -114,10 +138,12 @@ button{font-family:inherit;cursor:pointer;}
 .header-brand-text { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--white); letter-spacing: .02em; line-height: 1.2; }
 .header-brand-sub { font-size: 11px; color: rgba(255,255,255,.45); font-weight: 400; display: block; margin-top: 1px; }
 
-/* STICKY BOTTOM QUIZ BAR */
+/* STICKY QUIZ BAR — bottom-right on desktop, top-right on mobile */
 .quiz-bar {
   position: fixed;
   bottom: 20px;
+  display: flex;
+  flex-direction: column;
   width: 370px;
   border: 1px solid var(--group-fg);
   border-radius: 14px;
@@ -141,6 +167,10 @@ button{font-family:inherit;cursor:pointer;}
   transition: background .15s;
 }
 .quiz-bar-btn:hover { background: var(--white); color: var(--navy); }
+
+/* desktop: body sits above the strip, expanding upward (original layout) */
+.quiz-bar .quiz-body{order:1;}
+.quiz-bar .quiz-strip{order:2;}
 
 .quiz-body {
   background: #fff;
@@ -242,7 +272,7 @@ button{font-family:inherit;cursor:pointer;}
 .seo-intro p+p{margin-top:.4rem;}
 .price-key{margin-top:.85rem;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:var(--fs-xs);color:var(--text-mid);}
 .price-key strong{color:var(--navy);font-weight:600;}
-.affiliate-disclosure{margin-top:.85rem;padding-top:.75rem;border-top:1px solid var(--border);font-size:6px;color:#999;line-height:1.5;max-width:800px;font-style:italic;}
+.affiliate-disclosure{margin-top:.85rem;padding-top:.75rem;border-top:1px solid var(--border);font-size:11px;color:#999;line-height:1.5;max-width:800px;font-style:italic;}
 
 /* CONTROLS */
 .controls-panel{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:1rem 1.25rem;margin-bottom:1.25rem;display:flex;flex-direction:column;gap:.85rem;position:relative;}
@@ -309,6 +339,7 @@ button{font-family:inherit;cursor:pointer;}
 .chip-tick{display:none;color:var(--white);font-size:10px;line-height:1;}
 .device-chip.selected .chip-tick{display:block;}
 .chip-label{font-size:var(--fs-sm);font-weight:500;color:var(--text);}
+.chip-brand{color:var(--text-lt);font-weight:400;font-size:var(--fs-xs);}
 .chip-sub{font-size:10px;color:var(--text-lt);}
 
 .filter-group {
@@ -346,6 +377,7 @@ button{font-family:inherit;cursor:pointer;}
 .table-scroll{overflow-x:auto;cursor:grab;}
 .table-scroll.dragging{cursor:grabbing;user-select:none;}
 #floatBar::-webkit-scrollbar { display:none; }
+#floatBar{top:0;} /* desktop: floating buy bar at top; mobile override below */
 
 table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:max-content;min-width:100%;}
 
@@ -376,10 +408,12 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
 .best-for-chip-star{color:var(--gold-dk);font-size:11px;margin-right:2px;}
 .float-best-for-badge{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:700;letter-spacing:.03em;background:var(--navy);color:var(--white);padding:5px 12px;border-radius:var(--radius-pill);margin-bottom:4px;white-space:nowrap;border:1.5px solid rgba(255,255,255,.3);}
 .float-best-for-badge::before{content:'\2605 ';font-size:16px;color:var(--gold);}
-.hdr-buy-amazon{background:transparent;border:none;color:rgba(255,255,255,.55);font-weight:500;font-size:11px;letter-spacing:.02em;text-decoration:underline;padding:2px 0;}
-.hdr-buy-amazon:hover{background:transparent;color:var(--white);}
+.hdr-buy.hdr-buy-amazon{background:transparent;border:1.5px solid rgba(255,255,255,.35);color:rgba(255,255,255,.85);font-weight:600;font-size:12px;letter-spacing:.02em;text-decoration:none;}
+.hdr-buy.hdr-buy-amazon:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.85);color:var(--white);opacity:1;}
 .coupon-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.04em;background:#f5f5f5;color:var(--navy);border:1.5px dashed #aaaaaa;border-radius:var(--radius-sm);padding:3px 9px;margin-top:2px;}
 .coupon-saving{color:var(--green);font-weight:700;}
+.coupon-copy{cursor:pointer;user-select:none;}
+.coupon-copy:hover{border-color:var(--navy);}
 .dev-links{display:flex;flex-direction:column;gap:4px;width:100%;margin-top:6px;}
 .hdr-buy{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:7px 10px;border-radius:var(--radius-pill);font-size:var(--fs);font-weight:700;border:none;text-decoration:none;line-height:1;transition:opacity .12s;width:100%;}
 .hdr-buy:hover{opacity:.82;}
@@ -453,7 +487,30 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
 .page-footer{text-align:center;font-size:var(--fs-xs);color:var(--text-lt);margin-top:1.5rem;line-height:1.8;}
 .page-footer a{color:var(--text-mid);border-bottom:1px solid currentColor;}
 
-.seo-content{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;}
+/* ── Onboarding overlay ── */
+.onboard-backdrop{position:fixed;inset:0;z-index:400;background:rgba(12,0,109,.45);display:flex;align-items:center;justify-content:center;padding:1rem;transition:opacity .3s;overflow-y:auto;}
+.onboard-backdrop.hidden{opacity:0;pointer-events:none;}
+.onboard-card{background:#fff;border-radius:16px;max-width:480px;width:100%;padding:1.6rem 1.6rem 1.25rem;box-shadow:0 16px 48px rgba(0,0,0,.2);text-align:center;border:1px solid var(--border);max-height:calc(100vh - 2rem);overflow-y:auto;}
+.onboard-logo{width:48px;height:48px;border-radius:50%;border:2px solid var(--border);margin:0 auto .7rem;display:block;}
+.onboard-title{font-family:'DM Serif Display',serif;font-size:21px;color:var(--navy);margin-bottom:.25rem;}
+.onboard-sub{font-size:var(--fs-sm);color:var(--text-lt);margin-bottom:.75rem;}
+.onboard-label{display:block;font-size:10px;font-weight:700;color:var(--text-lt);text-transform:uppercase;letter-spacing:.06em;text-align:left;margin:.6rem 0 .35rem;}
+.onboard-row{display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-start;}
+.onboard-picks{display:flex;flex-direction:column;gap:7px;}
+.onboard-pick{border:1.5px solid var(--border);border-radius:10px;padding:9px 12px;text-align:left;display:flex;flex-direction:column;gap:3px;background:var(--white);}
+.onboard-pick.featured{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold);background:var(--gold-lt);}
+.onboard-pick.incompatible{opacity:.5;}
+.onboard-pick-badge{align-self:flex-start;font-size:10px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;padding:2px 9px;border-radius:var(--radius-pill);background:var(--cream);color:var(--text-mid);}
+.onboard-pick-badge.gold{background:var(--gold);color:var(--navy);}
+.onboard-pick-name{font-size:14px;font-weight:700;color:var(--navy);}
+.onboard-pick-blurb{font-size:var(--fs-xs);color:var(--text-mid);line-height:1.45;}
+.onboard-disclosure{display:block;font-size:9px;color:#999;font-style:italic;margin:.45rem 0 .2rem;text-align:left;}
+.onboard-consent{display:block;font-size:10px;color:#888;line-height:1.5;margin:0 0 .9rem;text-align:left;}
+.onboard-consent a{color:var(--navy);text-decoration:underline;}
+.onboard-btn-primary{font-family:'DM Sans',sans-serif;font-size:var(--fs);font-weight:700;padding:11px 32px;border-radius:var(--radius-pill);background:var(--navy);color:#fff;border:none;cursor:pointer;transition:opacity .12s;display:block;width:100%;margin-bottom:.6rem;}
+.onboard-btn-primary:hover{opacity:.85;}
+.onboard-btn-skip{font-family:'DM Sans',sans-serif;font-size:var(--fs-sm);font-weight:500;padding:0;background:transparent;color:var(--text-lt);border:none;cursor:pointer;transition:color .12s;text-decoration:underline;text-underline-offset:2px;text-decoration-style:dotted;}
+.onboard-btn-skip:hover{color:var(--navy);}
 
 @media(max-width:600px){
   .site-header-inner{padding:.7rem 1rem;}
@@ -461,7 +518,13 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
   .nav-menu{margin-left:auto;}
   .nav-reviews-mobile{display:block;}
   .page{padding:1rem .75rem 2rem;}
-  .quiz-bar{bottom:12px; right:-1px; border-radius: 14px 0 0 14px;}
+  .quiz-bar{top:70px; bottom:auto; right:-1px; border-radius: 14px 0 0 14px;}
+  .quiz-bar .quiz-strip{order:1;}
+  .quiz-bar .quiz-body{order:2;}
+  .quiz-body.open{border-top:1px solid #eee;border-bottom:none;}
+  .quiz-chevron{transform:rotate(180deg);}
+  .quiz-chevron.up{transform:rotate(0deg);}
+  #floatBar{top:auto;bottom:0;}
   :root{--spec-w:100px;--col-w:200px;}
   .caution-box{position:static;margin-top:.75rem;}
 }
@@ -508,6 +571,7 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
   <!-- SEO INTRO -->
   <section class="seo-intro">
     <h1>The Best At-Home IPL, LED, and Laser Hair Removal Devices, Compared</h1>
+    <p style="font-size:11px;color:var(--text-lt);margin:4px 0 0;">Last updated: <time datetime="2026-06-10">June 10, 2026</time></p>
 
     <p style="margin-top:12px;">This tool compares the most popular at-home IPL, LED, and laser hair removal devices based on the specs that actually matter to users: price range, skin/hair compatibility, performance (fluence), treatment frequency, and comfort-enhancing features. All data is sourced from manufacturer specifications.</p>
     <p style="margin-top:.4rem;"><strong>IPL vs. LED vs. laser:</strong> IPL devices are a cost-effective option that deliver results for candidates with pale skin and dark hair. Laser and LED devices are significantly more powerful, which makes them more effective for treating stubborn areas like the bikini region or male facial hair. They are also safer for those with dark skin tones due to the wavelengths they emit.</p>
@@ -547,11 +611,11 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
     <span class="controls-label">Price</span>
     <div class="filter-group-btns">
       <button class="ctl-btn active" onclick="setPriceFilter(null,this)">All</button>
-      <button class="ctl-btn" onclick="setPriceFilter(1,this)">Up to $300</button>
-      <button class="ctl-btn" onclick="setPriceFilter(2,this)">Up to $400</button>
-      <button class="ctl-btn" onclick="setPriceFilter(3,this)">Up to $500</button>
-      <button class="ctl-btn" onclick="setPriceFilter(4,this)">Up to $600</button>
-      <button class="ctl-btn" onclick="setPriceFilter(99,this)">$600+</button>
+      <button class="ctl-btn" data-usd="300" onclick="setPriceFilter(1,this)">Up to $300</button>
+      <button class="ctl-btn" data-usd="400" onclick="setPriceFilter(2,this)">Up to $400</button>
+      <button class="ctl-btn" data-usd="500" onclick="setPriceFilter(3,this)">Up to $500</button>
+      <button class="ctl-btn" data-usd="600" onclick="setPriceFilter(4,this)">Up to $600</button>
+      <button class="ctl-btn" data-usd="600" onclick="setPriceFilter(99,this)">$600+</button>
     </div>
   </div>
 </div>
@@ -604,11 +668,9 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
     <div class="table-scroll" id="tableScroll" style="display:none;"></div>
   </div>
 
-  <div class="seo-content" aria-hidden="true" id="seoContent"></div>
-
-  <!-- FLOATING TABLE HEADER -->
+  <!-- FLOATING BUY BAR (bottom of screen) -->
   <div id="floatBar" style="
-    position:fixed;top:0;left:0;right:0;z-index:105;
+    position:fixed;left:0;right:0;z-index:105;
     background:transparent;
     border-bottom:none;
     display:none;
@@ -619,7 +681,7 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
       display:flex;
       align-items:flex-start;
       min-width:max-content;
-      padding:8px 0px;
+      padding:8px 0 10px;
       filter:drop-shadow(0 2px 8px rgba(0,0,0,.25));
       gap:0px;
     "></div>
@@ -636,8 +698,38 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
 
 </main>
 
+<!-- ONBOARDING OVERLAY -->
+<div class="onboard-backdrop" id="onboardBackdrop" role="dialog" aria-modal="true" aria-label="Device finder" style="display:none;">
+  <div class="onboard-card">
+    <img src="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Science-Over-Fluff_Logo.png"
+         alt="Science Over Fluff" class="onboard-logo">
+    <div class="onboard-title">Find the right device for you</div>
+    <div class="onboard-sub">Skin tone and hair color determine which devices will actually work for you. Selecting them is optional and will help you narrow down which devices will work for you.</div>
+    <span class="onboard-label">Your skin tone</span>
+    <div class="onboard-row" id="obSkinRow"></div>
+    <span class="onboard-label">Your hair color</span>
+    <div class="onboard-row" id="obHairRow"></div>
+    <span class="onboard-label">Science Over Fluff picks</span>
+    <div class="onboard-picks" id="obPicks"></div>
+    <span class="onboard-disclosure">Science Over Fluff may earn a commission on purchases — full disclosure in the page intro.</span>
+    <span class="onboard-consent">This tool uses cookies for analytics and affiliate referrals — by continuing you accept them (<a href="/privacy" target="_blank" rel="noopener">privacy policy</a>), or <a href="#" id="obDeclineCookies">decline non-essential cookies</a>.</span>
+    <button class="onboard-btn-primary" onclick="dismissOnboard(false)">Compare my matches →</button>
+    <button class="onboard-btn-skip" onclick="dismissOnboard(true)">Skip — show all 13 devices</button>
+  </div>
+</div>
+
 <!-- STICKY QUIZ BAR -->
 <div class="quiz-bar" id="quizBar">
+
+  <div onclick="toggleQuiz()" class="quiz-strip">
+    <div class="strip-text">
+      Not sure which device to get?
+    </div>
+    <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz"
+     target="_blank" rel="noopener" class="quiz-bar-btn"
+     onclick="event.stopPropagation(); gtag('event', 'quiz_cta_click', { source: 'sticky_bar' });">Take the quiz →</a>
+    <span id="quizChevron" class="quiz-chevron">&#8963;</span>
+  </div>
 
   <div class="quiz-body" id="quizCardBody">
     <div style="display:flex;align-items:flex-start;gap:12px;">
@@ -648,16 +740,6 @@ table.cmp{border-collapse:collapse;font-size:var(--fs);table-layout:fixed;width:
       </div>
     </div>
     <button onclick="collapseQuiz()" aria-label="Close" class="quiz-close-btn">×</button>
-  </div>
-
-  <div onclick="toggleQuiz()" class="quiz-strip">
-    <div class="strip-text">
-      Not sure which device to get?
-    </div>
-    <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz"
-     target="_blank" rel="noopener" class="quiz-bar-btn"
-     onclick="event.stopPropagation(); gtag('event', 'quiz_cta_click', { source: 'sticky_bar' });">Take the quiz →</a>
-    <span id="quizChevron" class="quiz-chevron">&#8963;</span>
   </div>
 
 </div>
@@ -723,7 +805,7 @@ const DEVICES = [
     ],
     "cons": [
       "High frequency of use",
-      "Very low fluence — 1064nm lasers typically require higher fluence for results than devices that operate at lower wavelengths",
+      "Very low fluence for a laser-based device",
     ],
     "userReports": "Users report the V6S is easy to use but has lower fluence than many competing devices, making it less effective for full hair removal. Most users say it only thins hair and slows growth rather than eliminating it, even after months of use. Some users saw little to no improvement.",
     "bestFor": null,
@@ -1212,12 +1294,13 @@ function fmtNum(v){
 /* ── Locale-aware currency estimate for $ savings ── */
 /* Shows the router's USD saving in the visitor's local currency (GBP/EUR).
    Live rate from Frankfurter (ECB data); hardcoded fallback (~Jun 2026). */
-var FX_RATES = { GBP: 0.75, EUR: 0.86 };
-var CCY_SYMBOL = { GBP: "\u00A3", EUR: "\u20AC" };
+var FX_RATES = { GBP: 0.75, EUR: 0.86, CAD: 1.39 };
+var CCY_SYMBOL = { GBP: "\u00A3", EUR: "\u20AC", CAD: "CA$" };
 function targetCurrency(){
   var parts = (NUM_LOCALE || "en-US").split("-");
   var region = (parts[1] || "").toUpperCase();
   if (region === "GB") return "GBP";
+  if (region === "CA") return "CAD";
   var EUR = {DE:1,AT:1,FR:1,BE:1,ES:1,IT:1,NL:1,PT:1,IE:1,FI:1,GR:1,SK:1,SI:1,LV:1,LT:1,EE:1,LU:1,CY:1,MT:1,HR:1};
   if (EUR[region]) return "EUR";
   if (!region){
@@ -1245,13 +1328,60 @@ function refreshFxRates() {
       if (d && d.rates) {
         if (d.rates.GBP) FX_RATES.GBP = d.rates.GBP;
         if (d.rates.EUR) FX_RATES.EUR = d.rates.EUR;
+        if (d.rates.CAD) FX_RATES.CAD = d.rates.CAD;
         buildTable(); // Refresh the table with new rates
+        updatePriceFilterLabels();
       }
     })
     .catch(function(error){
       console.log("Using fallback exchange rates");
-      // Keep the hardcoded FX_RATES values (0.75, 0.86)
+      // Keep the hardcoded FX_RATES values (0.75, 0.86, 1.39)
     });
+}
+
+/* ── Localize price filter labels (GBP/EUR/CAD alongside USD) ── */
+function updatePriceFilterLabels(){
+  var ccy = targetCurrency();
+  document.querySelectorAll('.ctl-btn[data-usd]').forEach(function(btn){
+    if (!btn.getAttribute('data-base')) btn.setAttribute('data-base', btn.textContent.trim());
+    var base = btn.getAttribute('data-base');
+    var usd = Number(btn.getAttribute('data-usd'));
+    if (!ccy || !FX_RATES[ccy] || !isFinite(usd) || usd <= 0) { btn.textContent = base; return; }
+    var plus = /\+\s*$/.test(base);
+    var conv = Math.round(usd * FX_RATES[ccy] / 5) * 5;
+    btn.innerHTML = escHtml(base)
+      + ' <span style="opacity:.7;font-size:11px;font-weight:500;">(\u2248\u00A0'
+      + CCY_SYMBOL[ccy] + conv.toLocaleString(NUM_LOCALE) + (plus ? '+' : '') + ')</span>';
+  });
+}
+
+/* ── Click-to-copy coupon codes ── */
+function legacyCopy(text){
+  try {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+    document.body.appendChild(ta); ta.select();
+    var ok = document.execCommand('copy');
+    document.body.removeChild(ta);
+    return ok;
+  } catch(e){ return false; }
+}
+function copyCoupon(code, deviceId, el){
+  function done(ok){
+    if (!ok) return;
+    var line = el.querySelector('.coupon-line');
+    if (line) {
+      if (!el.getAttribute('data-orig')) el.setAttribute('data-orig', line.innerHTML);
+      line.innerHTML = '<span style="font-weight:800;color:var(--green);">Copied \u2713</span>';
+      setTimeout(function(){ line.innerHTML = el.getAttribute('data-orig'); }, 1400);
+    }
+    gtag('event', 'coupon_copy', { coupon_code: code, device_id: deviceId });
+  }
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(function(){ done(true); }, function(){ done(legacyCopy(code)); });
+    } else { done(legacyCopy(code)); }
+  } catch(e){ done(legacyCopy(code)); }
 }
 
 /* ── Helpers ── */
@@ -1400,8 +1530,9 @@ function renderChips() {
     chip.setAttribute("aria-checked", isSel ? "true" : "false");
     chip.setAttribute("tabindex","0");
     chip.innerHTML = '<div class="chip-box"><span class="chip-tick">✓</span></div>'
-      +'<span class="chip-label">'+(chipBest ? '<span class="best-for-chip-star">★</span>' : '')+escHtml(d.name)+'</span>'
-      +'<span class="chip-sub">'+d.fluence+' · '+PRICE_LABELS[d.price]+'</span>';
+      +(chipBest ? '<span class="best-for-chip-star">★</span>' : '')
+      +'<span class="chip-label"><span class="chip-brand">'+escHtml(d.brand)+'</span> '+escHtml(d.product)+'</span>'
+      +'<span class="chip-sub">'+PRICE_LABELS[d.price]+'</span>';
     chip.addEventListener("click", function(){ toggleDevice(d.id); });
     chip.addEventListener("keydown", function(e){ if(e.key===" "||e.key==="Enter"){e.preventDefault();toggleDevice(d.id);} });
     list.appendChild(chip);
@@ -1526,7 +1657,7 @@ function initDragScroll() {
       link_text: link.textContent.trim()
     });
     var bm = link.href.match(/get\.scienceoverfluff\.com\/([^?#]+)/);
-    if (bm) gtag('event', 'buy_click', { device_id: decodeURIComponent(bm[1]) });
+    if (bm) gtag('event', 'buy_click', { device_id: decodeURIComponent(bm[1]), placement: 'table_column' });
   });
   var isDragging = false;
   var startX, startScrollLeft;
@@ -1622,18 +1753,19 @@ var headers = devs.map(function(d){
     
     // Coupon code (middle of dev-links, before purchase buttons)
     if (hasSaving) {
-        links += '<div class="coupon-pill" style="flex-direction:column; gap:2px;margin-top:8px;">';
         if (coupon.code) {
-            links += '<span style="font-size:9px; opacity:0.8;">DISCOUNT CODE:</span><span><span style="font-weight:800;">\u2018'+escHtml(coupon.code)+'\u2019</span> \u2014 <span class="coupon-saving">'+fmtSaving(coupon.saving)+'</span></span>';
+            links += '<div class="coupon-pill coupon-copy" style="flex-direction:column; gap:2px;margin-top:8px;" role="button" tabindex="0" title="Click to copy code" onclick="copyCoupon(\''+escHtml(coupon.code)+'\', \''+d.id+'\', this)">';
+            links += '<span style="font-size:9px; opacity:0.8;">DISCOUNT CODE \u2014 CLICK TO COPY:</span><span class="coupon-line"><span style="font-weight:800;">\u2018'+escHtml(coupon.code)+'\u2019</span> \u2014 <span class="coupon-saving">'+fmtSaving(coupon.saving)+'</span></span>';
         } else {
+            links += '<div class="coupon-pill" style="flex-direction:column; gap:2px;margin-top:8px;">';
             links += '<span class="coupon-saving">'+fmtSaving(coupon.saving)+'</span>';
         }
         links += '</div>';
     }
     
     // Purchase links (bottom of dev-links)
-    links += '<a href="'+escHtml(d.links.buy)+'" target="_blank" rel="noopener sponsored" class="hdr-buy hdr-buy-primary">Get it here ↗</a>';
-    if (coupon.amazon) links += '<a href="https://get.scienceoverfluff.com/'+encodeURIComponent(d.id)+'?via=amazon" target="_blank" rel="noopener sponsored" class="hdr-buy hdr-buy-amazon" style="margin-top:-4px; font-size:12px; text-decoration:underline; text-decoration-style:dotted;">Also available on Amazon ↗</a>';
+    links += '<a href="'+escHtml(d.links.buy)+'" target="_blank" rel="noopener sponsored" class="hdr-buy hdr-buy-primary">See current price ↗</a>';
+    if (coupon.amazon) links += '<a href="https://get.scienceoverfluff.com/'+encodeURIComponent(d.id)+'?via=amazon" target="_blank" rel="noopener sponsored" class="hdr-buy hdr-buy-amazon" style="margin-top:2px;">Also available on Amazon ↗</a>';
     
     links += '</div>';
     
@@ -1712,11 +1844,11 @@ function updateFloatBar() {
     bar.style.display = "none"; return;
   }
 
-  /* show only when table header has scrolled off screen */
+  /* show only while the table is on screen and its header has scrolled off the top */
   var rect = tableCard.getBoundingClientRect();
   var thead = tableCard.querySelector('thead tr');
   var theadHeight = thead ? thead.offsetHeight : 120;
-  if (rect.top > -theadHeight) {
+  if (rect.top > -theadHeight || rect.bottom < 200) {
     bar.style.display = "none"; return;
   }
 
@@ -1731,6 +1863,14 @@ function updateFloatBar() {
   if (!devs.length) { bar.style.display = "none"; return; }
 
   bar.style.display = "block";
+  /* keep the bottom buy bar clear of the cookie banner on mobile */
+  if (window.innerWidth <= 600) {
+    var consentEl = document.getElementById('sof-consent');
+    var consentVisible = consentEl && consentEl.classList.contains('show');
+    bar.style.bottom = consentVisible ? (consentEl.offsetHeight + 24) + 'px' : '';
+  } else {
+    bar.style.bottom = '';
+  }
   var cardRect = tableCard.getBoundingClientRect();
   var specTh = thead ? thead.querySelector('th.spec-col') : null;
   var colThs = thead ? thead.querySelectorAll('th:not(.spec-col)') : [];
@@ -1754,26 +1894,17 @@ function updateFloatBar() {
       +'<span style="font-size:9px;font-weight:600;color:rgba(12,0,109,.55);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;">'+escHtml(d.brand)+'</span>'
       +'<span style="font-size:14px;font-weight:700;color:var(--navy);white-space:nowrap;">'+escHtml(d.product)+'</span></a>'
       +(hasSaving
-  ? '<a href="'+escHtml(d.links.buy)+'" target="_blank" rel="noopener sponsored"'
-    +' style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;letter-spacing:.04em;background:#f5f5f5;color:var(--navy);border:1.5px dashed #aaaaaa;border-radius:6px;padding:4px 8px;text-decoration:none;line-height:1.3;">'
-    + (coupon.code ? '<span style="font-size:9px; opacity:0.7;">DISCOUNT CODE:</span><span><span style="font-weight:800;">\u2018'+escHtml(coupon.code)+'\u2019</span> \u2014 <span class="coupon-saving">'+fmtSaving(coupon.saving)+'</span></span>' : '<span class="coupon-saving">'+fmtSaving(coupon.saving)+'</span>') + '</a>'
+  ? '<div class="coupon-copy" role="button" tabindex="0" title="Click to copy code"'
+    +' onclick="copyCoupon(\''+escHtml(coupon.code)+'\', \''+d.id+'\', this)"'
+    +' style="display:inline-flex;flex-direction:column;align-items:center;gap:2px;font-size:11px;font-weight:700;letter-spacing:.04em;background:#f5f5f5;color:var(--navy);border:1.5px dashed #aaaaaa;border-radius:6px;padding:4px 8px;line-height:1.3;cursor:pointer;">'
+    +'<span style="font-size:9px; opacity:0.7;">DISCOUNT CODE \u2014 CLICK TO COPY:</span><span class="coupon-line"><span style="font-weight:800;">\u2018'+escHtml(coupon.code)+'\u2019</span> \u2014 <span class="coupon-saving">'+fmtSaving(coupon.saving)+'</span></span>'
+    +'</div>'
   : '')
       +'<a href="'+escHtml(d.links.buy)+'" target="_blank" rel="noopener sponsored"'
       +' style="display:inline-block;padding:6px 12px;background:#eb9718;color:#0c006d;font-size:13px;font-weight:700;border-radius:100px;text-decoration:none;white-space:nowrap;">'
-      +'Get it here ↗</a>'
+      +'See current price ↗</a>'
       +'</div>';
   }).join('');
-}
-
-function buildSeoContent(){
-  var el = document.getElementById("seoContent");
-  el.innerHTML = DEVICES.map(function(d){
-    return '<article><h3>'+escHtml(d.name)+'</h3>'
-      +'<p>Type: '+(d.category==="Laser/LED" || d.type==="laser" ? "Laser/LED" : "IPL")+'. Max fluence: '+escHtml(fmtNum(d.fluence))+'. Wavelength: '+escHtml(d.wavelength)+'. Price: '+PRICE_LABELS[d.price]+'. Treatment frequency: '+escHtml(d.frequency)+'. Skin cooling: '+(d.cooling?"Yes":"No")+'. Lifetime flashes: '+escHtml(fmtNum(d.lifespan))+'.</p>'
-      +'<p>Strengths: '+escHtml(d.wins.join("; "))+'.</p><p>Drawbacks: '+escHtml(d.cons.join("; "))+'.</p>'
-      +(d.userReports?'<p>User reports: '+escHtml(d.userReports)+'</p>':"")
-      +'</article>';
-  }).join("");
 }
 
 /* ── Init ── */
@@ -1792,8 +1923,133 @@ buildHairFilter();
 selectAll();       /* select all devices by default */
 renderChips();
 buildTable();
-buildSeoContent();
+updatePriceFilterLabels();
 initDragScroll();
+
+/* track clicks from the bottom floating buy bar (it sits outside #tableScroll) */
+document.getElementById('floatBar').addEventListener('click', function(e){
+  var link = e.target.closest('a[rel*="sponsored"]');
+  if (!link) return;
+  gtag('event', 'outbound_click', { link_url: link.href, link_text: link.textContent.trim() });
+  var bm = link.href.match(/get\.scienceoverfluff\.com\/([^?#]+)/);
+  if (bm) gtag('event', 'buy_click', { device_id: decodeURIComponent(bm[1]), placement: (window.innerWidth <= 600 ? 'float_bar_bottom' : 'float_bar_top') });
+});
+
+/* ── Onboarding overlay: skin + hair, then editorial picks ── */
+var ONBOARD_PICKS = [
+  { id: "viqure-epipro", badge: "\u2605 Best Overall", cls: "featured",
+    blurb: "The highest fluence of any at-home device, rated for all six skin tones and the widest range of hair colors." },
+  { id: "viqure-s-ld", badge: "Best Value", cls: "",
+    blurb: "The best performance-for-price of any device in this comparison: high fluence, rated up to Fitzpatrick V, effective on hormonal hair, and the highest lifetime flash count." },
+  { id: "ulike-air-4", badge: "Best Budget", cls: "",
+    blurb: "One of the most affordable devices, with higher fluence than most budget IPLs." },
+  { id: "braun-silk-expert-pro-5", badge: "Popular", cls: "",
+    blurb: "A household name and frequent bestseller. Works well for dark hair and light skin." }
+];
+var obSkin = null, obHair = null;
+
+function obCompatible(d){
+  if (obSkin !== null && !d.skinTones[obSkin]) return false;
+  if (obHair !== null && d.hairColors[obHair] !== "ok") return false;
+  return true;
+}
+
+function renderOnboardSelectors(){
+  var sEl = document.getElementById('obSkinRow');
+  var hEl = document.getElementById('obHairRow');
+  if (!sEl || !hEl) return;
+  sEl.innerHTML = ''; hEl.innerHTML = '';
+  SKIN_META.forEach(function(sm, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'st-ctl-btn' + (obSkin === i ? ' active' : '');
+    b.title = sm.label;
+    b.innerHTML = '<div class="st-ctl-circle" style="background:'+sm.color+';border:1.5px solid rgba(0,0,0,.1);"></div><span>'+sm.roman+'</span>';
+    b.addEventListener('click', function(){ obSkin = (obSkin === i) ? null : i; renderOnboardSelectors(); renderOnboardPicks(); });
+    sEl.appendChild(b);
+  });
+  HAIR_META.forEach(function(hm, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'st-ctl-btn' + (obHair === i ? ' active' : '');
+    b.title = hm.label;
+    b.innerHTML = '<img src="'+hm.img+'" style="width:32px;height:32px;object-fit:cover;border-radius:4px;" alt="'+escHtml(hm.label)+'"><span style="font-size:9px;margin-top:2px;line-height:1.2;text-align:center;">'+escHtml(hm.label)+'</span>';
+    b.addEventListener('click', function(){ obHair = (obHair === i) ? null : i; renderOnboardSelectors(); renderOnboardPicks(); });
+    hEl.appendChild(b);
+  });
+}
+
+function renderOnboardPicks(){
+  var el = document.getElementById('obPicks');
+  if (!el) return;
+  el.innerHTML = ONBOARD_PICKS.map(function(p){
+    var d = DEVICES.find(function(x){ return x.id === p.id; });
+    if (!d) return '';
+    var compat = obCompatible(d);
+    var cls = 'onboard-pick' + (p.cls ? ' ' + p.cls : '') + (compat ? '' : ' incompatible');
+    var body = compat
+      ? '<span class="onboard-pick-blurb">'+p.blurb+'</span>'
+      : '<span class="onboard-pick-blurb">Not rated for your selected skin tone or hair color. The comparison will highlight better matches for you.</span>';
+    return '<div class="'+cls+'">'
+      +'<span class="onboard-pick-badge'+(p.cls === 'featured' ? ' gold' : '')+'">'+p.badge+'</span>'
+      +'<span class="onboard-pick-name">'+escHtml(d.brand)+' '+escHtml(d.product)+'</span>'
+      +body
+      +'</div>';
+  }).join('');
+}
+
+function dismissOnboard(skip){
+  var el = document.getElementById('onboardBackdrop');
+  if (el) { el.classList.add('hidden'); setTimeout(function(){ el.style.display = 'none'; }, 320); }
+  try { sessionStorage.setItem('sof-onboard-seen', '1'); } catch(e){}
+  /* the overlay notice doubles as the cookie banner: continuing = consent, unless they declined or chose previously */
+  try {
+    if (!window.sofCookiesDeclined && !localStorage.getItem('sof-consent') && typeof sofConsent === 'function') sofConsent(true);
+  } catch(e){}
+  gtag('event', 'onboard_dismiss', {
+    action: skip ? 'skip' : 'apply',
+    skin: obSkin === null ? 'none' : SKIN_META[obSkin].label,
+    hair: obHair === null ? 'none' : HAIR_META[obHair].label
+  });
+  if (skip) return;
+  if (obSkin !== null) activeSkin = obSkin;
+  if (obHair !== null) activeHair = obHair;
+  buildSkinFilter(); buildHairFilter();
+  /* select every device compatible with the chosen skin tone and hair color */
+  selectedOrder = getVisible().map(function(d){ return d.id; });
+  renderChips(); buildTable();
+  if (window.innerWidth <= 600) {
+    setTimeout(function(){
+      var card = document.getElementById('tableCard');
+      if (card) card.scrollIntoView({ behavior: 'smooth' });
+    }, 380);
+  }
+}
+
+function initOnboard(){
+  var el = document.getElementById('onboardBackdrop');
+  if (!el) return;
+  try {
+    var params = new URLSearchParams(location.search);
+    if (params.get('type') || params.get('skip_intro') || sessionStorage.getItem('sof-onboard-seen')) {
+      el.style.display = 'none'; return;
+    }
+  } catch(e){}
+  renderOnboardSelectors();
+  renderOnboardPicks();
+  var dec = document.getElementById('obDeclineCookies');
+  if (dec) dec.addEventListener('click', function(e){
+    e.preventDefault();
+    window.sofCookiesDeclined = true;
+    if (typeof sofConsent === 'function') sofConsent(false);
+    this.textContent = 'non-essential cookies declined \u2713';
+    this.style.textDecoration = 'none';
+    this.style.cursor = 'default';
+  });
+  window.sofOnboardShown = true;
+  el.style.display = 'flex';
+}
+initOnboard();
 var tableObserver = new IntersectionObserver(function(entries){
   entries.forEach(function(entry){
     if (entry.isIntersecting){ setTimeout(showScrollHint, 600); tableObserver.disconnect(); }
@@ -1816,8 +2072,11 @@ window.addEventListener("resize", function(){ updateFade(); updateFloatBar(); })
   #sof-consent .sof-accept{background:var(--gold,#eb9718);color:var(--navy,#0c006d);}
   #sof-consent .sof-decline{background:var(--cream,#ededed);color:var(--navy,#0c006d);border:1px solid var(--border,#cccccc);}
   #sof-consent button:hover{opacity:.85;}
+  #sof-consent .sof-close{position:absolute;top:8px;right:8px;flex:none;min-width:0;width:24px;height:24px;padding:0;border-radius:50%;background:var(--cream,#ededed);color:var(--text-mid,#555270);font-size:15px;line-height:1;display:flex;align-items:center;justify-content:center;border:none;}
+  #sof-consent .sof-close:hover{opacity:1;background:#ddd;color:var(--navy,#0c006d);}
 </style>
 <div id="sof-consent" role="dialog" aria-live="polite" aria-label="Cookie consent">
+  <button class="sof-close" type="button" aria-label="Close" onclick="sofConsentClose()">×</button>
   <h4>We value your privacy</h4>
   <p>We use cookies for analytics and to measure affiliate referrals. You can accept or decline non-essential cookies. See our <a href="/privacy" target="_blank" rel="noopener">privacy policy</a>.</p>
   <div class="sof-consent-btns">
@@ -1841,12 +2100,19 @@ window.addEventListener("resize", function(){ updateFade(); updateFloatBar(); })
     try { localStorage.setItem('sof-consent', granted?'granted':'denied'); } catch(e){}
     apply(granted);
     var el = document.getElementById('sof-consent'); if (el) el.classList.remove('show');
+    if (typeof updateFloatBar === 'function') updateFloatBar();
   };
-  var saved = null;
+  window.sofConsentClose = function(){
+    try { sessionStorage.setItem('sof-consent-dismissed', '1'); } catch(e){}
+    var el = document.getElementById('sof-consent'); if (el) el.classList.remove('show');
+    if (typeof updateFloatBar === 'function') updateFloatBar();
+  };
+  var saved = null, dismissed = null;
   try { saved = localStorage.getItem('sof-consent'); } catch(e){}
+  try { dismissed = sessionStorage.getItem('sof-consent-dismissed'); } catch(e){}
   if (saved === 'granted') { apply(true); }
   else if (saved === 'denied') { apply(false); }
-  else { var el = document.getElementById('sof-consent'); if (el) el.classList.add('show'); }
+  else if (!dismissed && !window.sofOnboardShown) { var el = document.getElementById('sof-consent'); if (el) el.classList.add('show'); }
 })();
 </script>
 <noscript><section class="sof-seo"><h2>At-home laser &amp; IPL hair-removal devices compared</h2><p>Science Over Fluff compares 13 at-home hair-removal devices by wavelength, fluence, skin-tone and hair-colour compatibility, treatment window and price, with pros, cons and real user feedback for each.</p><article><h3>Braun Silk Expert Pro 5</h3><p>IPL · Wavelength 510–2000 nm · Once per week · Window 1.5cm² / 3cm² / 4cm² · 400,000 flashes</p><p>Users report the Braun Silk-Expert Pro 5 delivers significant hair reduction on legs and armpits with regular use, though burns are a commonly reported risk for those with darker skin tones. Pubic areas tend to be slower and may never reach full baldness, but most users still consider Braun a reliable home IPL option.</p><p><strong>Pros:</strong> Low frequency of use — once per week; Specialized treatment heads for different treatment areas.</p><p><strong>Cons:</strong> Wavelength range carries higher burn risk for dark skin.</p><p><a href="https://get.scienceoverfluff.com/braun-silk-expert-pro-5?ref=comparison-braun-silk-expert-pro-5">Where to buy the Braun Silk Expert Pro 5</a></p></article>
