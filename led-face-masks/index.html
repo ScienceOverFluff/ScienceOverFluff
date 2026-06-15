@@ -2222,7 +2222,7 @@ const DEVICES = [
       "pros": ["Includes deep NIR (1072 nm) — rare in LED masks, supports deeper collagen remodeling", "High reported irradiance (107 mW/cm²)", "Multiple treatment modes including redness and irritation", "Developed by an optics-focused team with published specs"],
       "cons": ["No FDA clearance", "Only 180 LEDs — lowest count among multi-mode masks", "Very new product — no user reviews available yet", "Unproven brand in a crowded market"]
     },
-    "user_reports": "This product is new to market and no user reviews are available yet."
+    "user_reports": "This product is new to market and no user reviews are available yet. ViQure is a smaller brand that's been gaining traction, with several of their other devices developing avid followings."
   }
 ];
 
@@ -2869,10 +2869,10 @@ function buildWhatsThisBody(key){
   return ''
 
     // Tier 1: Reported irradiance (always shown)
-    + '<p style="'+pStyle+'"><strong style="'+strongStyle+'">Reported irradiance</strong> is the value manufacturers usually publish — typically measured at the surface of a single LED chip at its brightest point. However, because LEDs sit with gaps between them across the mask face, the light your skin actually receives is averaged across the whole area and is far lower than that peak number.</p>'
+    + '<p style="'+pStyle+'"><strong style="'+strongStyle+'">Reported irradiance</strong> is the value manufacturers usually publish — typically measured at the surface of a single LED chip at its brightest point. However, because LEDs sit with gaps between them across the mask face, the average light your skin actually receives is far lower than that peak number.</p>'
 
     // Tier 2: Calculated irradiance (always shown)
-    + '<p style="'+pStyle+'"><strong style="'+strongStyle+'">Calculated irradiance</strong> corrects for this by spreading the manufacturer\'s peak number across the full treatment area. If a mask has separate zones, each zone is calculated independently. It\'s an estimate, but a directionally reliable one and a fairer basis for comparing devices.</p>'
+    + '<p style="'+pStyle+'"><strong style="'+strongStyle+'">Calculated irradiance</strong> corrects for this by normalizing the manufacturer\'s peak number across the full treatment area. If a mask has separate zones, each zone is calculated independently. It\'s an estimate, but a directionally reliable one and a fairer basis for comparing devices.</p>'
 
     // Diagram (always shown, sits after calculated explanation)
     + '<p style="'+pStyle+'margin-bottom:10px;">The diagram below shows how two masks with very different peak specs can deliver <strong style="'+strongStyle+'">identical average irradiance</strong> to skin:</p>'
