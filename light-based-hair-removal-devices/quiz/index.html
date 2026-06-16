@@ -15,7 +15,7 @@
   "@type": "WebApplication",
   "name": "Light-Based Hair Removal Device Recommendation Quiz",
   "description": "A five-question quiz that recommends the best IPL, laser, or LED hair removal device based on your Fitzpatrick skin type, hair color, treatment area, and goals.",
-  "url": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz",
+  "url": "https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz/",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "Web",
   "author": {
@@ -36,7 +36,7 @@
 <meta property="og:title" content="Which Light-Based Hair Removal Device Is Right for You?">
 <meta property="og:description" content="Personalized IPL, laser, and LED device recommendations based on your skin tone, hair color, and treatment goals.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz">
+<meta property="og:url" content="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz/">
 <meta property="og:image" content="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Science-Over-Fluff_Logo.png"><title>Laser LED IPL Hair Removal Device Recommendation Tool | Science Over Fluff</title>
 <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ScienceOverFluff/ScienceOverFluff/main/Images/Science-Over-Fluff_Logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -674,10 +674,10 @@
       </button>
       <div class="nav-dropdown">
         <div class="nav-dropdown-section">LED Face Masks</div>
-        <a href="https://compare.scienceoverfluff.com/led-face-masks">↗ Compare LED Face Masks</a>
+        <a href="https://compare.scienceoverfluff.com/led-face-masks/">↗ Compare LED Face Masks</a>
         <div class="nav-dropdown-section">Hair Removal</div>
-        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices">↗ Compare Hair Removal Devices</a>
-        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz">↗ Device Recommendation Quiz</a>
+        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/">↗ Compare Hair Removal Devices</a>
+        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz/">↗ Device Recommendation Quiz</a>
         <div class="nav-reviews-mobile">
           <div class="nav-dropdown-section">Science Over Fluff</div>
           <a href="https://www.scienceoverfluff.com/archive" target="_blank" rel="noopener">↗ Data-Driven Product Reviews</a>
@@ -1258,7 +1258,7 @@ function renderResult(device) {
         ${cfg.discountImageUrl ? `
           <a href="${LINKS[device].primary}" target="_blank" rel="noopener" style="display:block;"><img src="${cfg.discountImageUrl}" alt="Science Over Fluff exclusive discount code" style="width:100%;border-radius:4px;display:block;margin-bottom:20px;cursor:pointer;"></a>` : ''}
         <p style="font-size:.72rem;color:#aaa;line-height:1.5;margin-bottom:16px;">If you find the recommendation tool to be helpful, you can support future tools, articles, and other Science Over Fluff content by using the links and discount codes found here when making your purchase. Science Over Fluff may earn a commission at no extra cost to you.</p>
-        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices" target="_blank" rel="noopener"
+        <a href="https://compare.scienceoverfluff.com/light-based-hair-removal-devices/" target="_blank" rel="noopener"
            style="display:block;text-align:center;margin-top:20px;padding:13px 20px;border:2px solid var(--navy);border-radius:var(--radius);font-size:.92rem;font-weight:600;color:var(--navy);text-decoration:none;transition:background .18s,color .18s;"
            onmouseover="this.style.background='var(--navy)';this.style.color='#fff'"
            onmouseout="this.style.background='';this.style.color='var(--navy)'">
@@ -1311,7 +1311,7 @@ async function submitToSheets(result) {
   if (!APPS_SCRIPT_URL) return;
   const fingerprint = await getFingerprint();
 
-  const resultUrl = `https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz`
+  const resultUrl = `https://compare.scienceoverfluff.com/light-based-hair-removal-devices/quiz/`
     + `?result=${encodeURIComponent(result)}`
     + `&skin=${encodeURIComponent(answers.skin)}`
     + `&hair=${encodeURIComponent(answers.hair)}`
